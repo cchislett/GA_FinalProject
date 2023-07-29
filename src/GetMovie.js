@@ -21,17 +21,16 @@ function GetMovie() {
         'X-RapidAPI-Key': API_KEY
       },
     })
-
     .then(res => res.json())
     .then(data => {console.log(data)})
     .catch(err => { console.log(err)})
   }
-  // Get the movie
+  // Get the movies
   useEffect(fetchMovies, []) 
   
   return (  
     <div className="Movies">
-      <p>Trying to fetch movies</p>
+      <p>Fetched movies based on user input</p>
     </div>
   )
 }
