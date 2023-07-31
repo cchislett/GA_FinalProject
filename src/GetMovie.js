@@ -1,5 +1,7 @@
 import { API_KEY } from "./App"
 import { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
+import testMovies from "./mockMovies"
 
 function GetMovie() {
   
@@ -13,7 +15,7 @@ function GetMovie() {
   // The user selected film from the initial search
   // This is the movie that will be used for comparison
   const [selectedFilm, setSelectedFilm] = useState("")
-  
+  /*
   const fetchMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/search?q=${userInput}`, {
       headers: {
@@ -25,12 +27,19 @@ function GetMovie() {
     .then(data => {console.log(data)})
     .catch(err => { console.log(err)})
   }
+  */
+
+  const fetchMovies = () => {
+    setMovies(testMovies)
+  }
+  
   // Get the movies
   useEffect(fetchMovies, []) 
   
   return (  
     <div className="Movies">
-      <p>Fetched movies based on user input</p>
+      <h1>Get a movie </h1>
+      <p>Fetch movies based on user input</p>
     </div>
   )
 }
