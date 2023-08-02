@@ -1,3 +1,4 @@
+import './App.css';
 import { API_KEY } from "./App"
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
@@ -29,10 +30,14 @@ function GetMovie() {
   }
   */
 
+    // SET PLACEHOLDER DATA FOR TESTING
   const fetchMovies = () => {
-    setMovies(testMovies)
+    setMovies(...testMovies["movies:"])
   }
+
   
+
+
   // Get the movies
   useEffect(fetchMovies, []) 
   
@@ -40,6 +45,14 @@ function GetMovie() {
     <div className="Movies">
       <h1>Get a movie </h1>
       <p>Fetch movies based on user input</p>
+      {movies !== "" &&
+        movies.map((res) =>
+            <div>
+              <p>{res.movie}</p>
+            </div>
+          )
+      }
+      <Link to='/'> Take me home </Link> 
     </div>
   )
 }

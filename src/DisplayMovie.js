@@ -1,3 +1,4 @@
+import './App.css';
 function DisplayMovie({posterURL, title, genre, story}){
     return(
         <div className="DisplayMovie">          
