@@ -13,6 +13,7 @@ export const API_KEY = process.env.REACT_APP_MOVIES_API_KEY
 
 function App() {
   return (
+        <div className='App'>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />}/>
@@ -21,6 +22,7 @@ function App() {
             <Route path='*' element={<PageNotFound/>}/>
           </Routes>
         </BrowserRouter>
+        </div>
   );
 }
 

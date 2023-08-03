@@ -34,10 +34,7 @@ function GetMovie() {
   const fetchMovies = () => {
     setMovies(...testMovies["movies:"])
   }
-
   
-
-
   // Get the movies
   useEffect(fetchMovies, []) 
   

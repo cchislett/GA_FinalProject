@@ -32,11 +32,11 @@ function GetSimilarMovies() {
   }
 
   // Get the movies
-  useEffect(fetchSimMovies, [simMovies]) 
+  useEffect(fetchSimMovies, []) 
   
   return (  
     <div className="SimilarMovies">
-      <h1>Similar movies to the selection</h1>
+      <h1>Similar movies to your choice</h1>
       <div>
         {simMovies !== "" &&
           simMovies.map((movie) =>
@@ -44,14 +44,20 @@ function GetSimilarMovies() {
               <DisplayMovie
                 posterURL={movie.img}
                 title={movie.title}
-                genre={movie.genre}
                 story={movie.story}
+                genre={movie.genre}
+                style={movie.style}
+                duration={movie.duration}
               />
             </div>
           )
         }
       </div>
-      <Link to='/'> Take me home </Link> 
+
+      <Link to='/'> 
+        <button>Home</button>
+      </Link> 
+
     </div>
   )
 }
