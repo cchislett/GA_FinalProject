@@ -36,7 +36,7 @@ function GetSimilarMovies() {
   
   return (  
     <div className="SimilarMovies">
-      <h1>Similar movies to your choice</h1>
+      <h1>Here are some other movies that you may enjoy.</h1>
       <div>
         {simMovies !== "" &&
           simMovies.map((movie) =>

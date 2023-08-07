@@ -17,7 +17,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/GetMovie' element={<GetMovie/>}/>
+            <Route path='/GetMovie/:movie' element={<GetMovie/>}/>
             <Route path='/GetSimilarMovies' element={<GetSimilarMovies/>}/>
             <Route path='*' element={<PageNotFound/>}/>
           </Routes>

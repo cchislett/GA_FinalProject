@@ -2,10 +2,15 @@ import './App.css';
 import { API_KEY } from "./App"
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import { useParams } from "react-router-dom"
+
 import testMovies from "./mockMovies"
 
 function GetMovie() {
-  
+
+  // The user entered movie title
+  const params = useParams()
+
   // Placeholder user input to test API response
   const userInput="titanic"  
 
@@ -40,8 +45,8 @@ function GetMovie() {
   
   return (  
     <div className="Movies">
-      <h1>Get a movie </h1>
-      <p>Fetch movies based on user input</p>
+      <h1>Movies matching {params.movie}</h1>
+      <h2>Select the movie you wish use for your search</h2>
       {movies !== "" &&
         movies.map((res) =>
             <div>
@@ -49,7 +54,14 @@ function GetMovie() {
             </div>
           )
       }
-      <Link to='/'> Take me home </Link> 
+      <Link to='/'> 
+        <button>Home</button>
+      </Link> 
+
+      <Link to='/GetSimilarMovies'> 
+        <button>Show Similar</button>
+      </Link> 
+
     </div>
   )
 }
