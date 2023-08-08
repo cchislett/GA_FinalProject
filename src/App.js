@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/GetMovie/:movie' element={<GetMovie/>}/>
-            <Route path='/GetSimilarMovies' element={<GetSimilarMovies/>}/>
+            <Route path='/GetSimilarMovies/:movie' element={<GetSimilarMovies/>}/>
             <Route path='*' element={<PageNotFound/>}/>
           </Routes>
         </BrowserRouter>

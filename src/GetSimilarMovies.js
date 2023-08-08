@@ -1,17 +1,20 @@
 import './App.css';
-import { API_KEY } from "./App"
+import { API_KEY } from './App'
 import { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
-import testSimMovies from "./mockSimMovies"
-import DisplayMovie from "./DisplayMovie"
+import {Link, useParams} from 'react-router-dom'
+import testSimMovies from './mockSimMovies'
+import DisplayMovie from './DisplayMovie'
 
 function GetSimilarMovies() {
   
+  // The user entered movie title
+  const params = useParams()
+
   // Placeholder input to test API response
-  const sourceMovie="24168-titanic"  
+  const sourceMovie='24168-titanic'  
 
   // The similar movies as provided by the API.   
-  const [simMovies, setSimMovies] = useState("")
+  const [simMovies, setSimMovies] = useState('')
   /*
   const fetchSimMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/similar?id=${sourceMovie}`, {
@@ -35,10 +38,11 @@ function GetSimilarMovies() {
   useEffect(fetchSimMovies, []) 
   
   return (  
-    <div className="SimilarMovies">
+    <div className='Movies'>
+      <h1>You selected {params.movie}</h1>
       <h1>Here are some other movies that you may enjoy.</h1>
       <div>
-        {simMovies !== "" &&
+        {simMovies !== '' &&
           simMovies.map((movie) =>
             <div>
               <DisplayMovie

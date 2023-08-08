@@ -1,26 +1,27 @@
 import './App.css';
-import { API_KEY } from "./App"
+import { API_KEY } from './App'
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
-import { useParams } from "react-router-dom"
-
-import testMovies from "./mockMovies"
+import { useParams, useNavigate } from 'react-router-dom'
+import testMovies from './mockMovies'
 
 function GetMovie() {
+
+  let navigate = useNavigate()
 
   // The user entered movie title
   const params = useParams()
 
   // Placeholder user input to test API response
-  const userInput="titanic"  
+  const userInput='titanic'  
 
   // The movies returned from the initial API search
   // These are the movies that can be used for comparison.   
-  const [movies, setMovies] = useState("")
+  const [movies, setMovies] = useState('')
 
   // The user selected film from the initial search
   // This is the movie that will be used for comparison
-  const [selectedFilm, setSelectedFilm] = useState("")
+  //const [selectedFilm, setSelectedFilm] = useState('')
   /*
   const fetchMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/search?q=${userInput}`, {
@@ -40,16 +41,22 @@ function GetMovie() {
     setMovies(...testMovies["movies:"])
   }
   
+  const handleClick = (res) => {
+    navigate(`/GetSimilarMovies/${res.id}`)
+  }
+
   // Get the movies
   useEffect(fetchMovies, []) 
   
   return (  
-    <div className="Movies">
+    <div className='Movies'>
       <h1>Movies matching {params.movie}</h1>
       <h2>Select the movie you wish use for your search</h2>
-      {movies !== "" &&
+      {movies !== '' &&
         movies.map((res) =>
-            <div>
+            <div className='Movie' 
+               onClick={() => handleClick(res)}
+            >
               <p>{res.movie}</p>
             </div>
           )

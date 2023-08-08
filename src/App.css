@@ -5,14 +5,14 @@
   color: black;
 }
 
-.SimilarMovies {
+.Movies {
   margin: 0 auto;
   text-align: center;
   padding: 10px;
   max-width: 1000px;
 }
 
-.DisplayMovie {
+.Movie {
   background-color: lightgrey;
   color: black;
   border-radius: 5px;
@@ -22,10 +22,15 @@
   flex-direction: row;
 }
 
+.Movie:hover {
+  background-color: lightsteelblue;
+}
+
 .DisplayMovie p{
   text-align: justify;
   padding: 0 50px 0 50px;
 }
+
 button {
   height: 50px;
   width: 100px;
