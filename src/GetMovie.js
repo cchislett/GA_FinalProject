@@ -11,9 +11,10 @@ function GetMovie() {
 
   // The user entered movie title
   const params = useParams()
+  const userInput = params.movie
 
   // Placeholder user input to test API response
-  const userInput='titanic'  
+ // const userInput='titanic'  
 
   // The movies returned from the initial API search
   // These are the movies that can be used for comparison.   
@@ -22,7 +23,7 @@ function GetMovie() {
   // The user selected film from the initial search
   // This is the movie that will be used for comparison
   //const [selectedFilm, setSelectedFilm] = useState('')
-  /*
+  
   const fetchMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/search?q=${userInput}`, {
       headers: {
@@ -31,15 +32,15 @@ function GetMovie() {
       },
     })
     .then(res => res.json())
-    .then(data => {console.log(data)})
+    .then(data => {setMovies(...data["movies:"])})
     .catch(err => { console.log(err)})
   }
-  */
+  
 
     // SET PLACEHOLDER DATA FOR TESTING
-  const fetchMovies = () => {
-    setMovies(...testMovies["movies:"])
-  }
+  //const fetchMovies = () => {
+  //  setMovies(...testMovies["movies:"])
+ // }
   
   const handleClick = (res) => {
     navigate(`/GetSimilarMovies/${res.id}`)

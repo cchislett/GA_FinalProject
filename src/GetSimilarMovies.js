@@ -9,13 +9,14 @@ function GetSimilarMovies() {
   
   // The user entered movie title
   const params = useParams()
+  const sourceMovie = params.movie
 
   // Placeholder input to test API response
-  const sourceMovie='24168-titanic'  
+  //const sourceMovie='24168-titanic'  
 
   // The similar movies as provided by the API.   
   const [simMovies, setSimMovies] = useState('')
-  /*
+  
   const fetchSimMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/similar?id=${sourceMovie}`, {
       headers: {
@@ -24,15 +25,16 @@ function GetSimilarMovies() {
       },
     })
     .then(res => res.json())
-    .then(data => {console.log(data)})
+    .then(data => {setSimMovies(...data["movies:"])})
     .catch(err => { console.log(err)})
   }
-  */
-
+  
+  /*
   // SET PLACEHOLDER DATA FOR TESTING
   const fetchSimMovies = () => {
     setSimMovies(...testSimMovies["movies:"])
   }
+ */
 
   // Get the movies
   useEffect(fetchSimMovies, []) 
