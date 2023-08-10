@@ -3,7 +3,13 @@ import { API_KEY } from './App'
 import { useEffect, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import testMovies from './mockMovies'
-
+/*
+  Function GetMovie
+  This function uses the "get Id" API function 
+  It takes a user query strings
+  And returns a list of possible movie matches with ID's
+  These ID's can be used for the "find similar" API function.
+*/
 function GetMovie() {
 
   let navigate = useNavigate()
@@ -15,15 +21,14 @@ function GetMovie() {
   // The movies returned from the initial API search
   // These are the movies that can be used for comparison.   
   const [movies, setMovies] = useState('null')
- 
-  
+
   // SET PLACEHOLDER DATA FOR TESTING
     const fetchMovies = () => {
     setMovies(...testMovies["movies:"])
   }
 
-
   /*
+  // Fetch a list of movies that possibly match the users query 
   const fetchMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/search?q=${userInput}`, {
       headers: {
@@ -37,6 +42,7 @@ function GetMovie() {
   }
   */
  
+  // Handle a user click on a movie div
   const handleClick = (res) => {
     navigate(`/GetSimilarMovies/${res.id}`)
   }
@@ -56,20 +62,20 @@ function GetMovie() {
         </div>}
 
       {/* The movie state isn't null but is empty.*/
-       /* The API call was successful but returned no content */
+       /* The API call was successful BUT returned no content */
        /* The API couldn't find the user's movie query */ }
       { movies.length === 0 && <h1>Sorry, the API couldn't find {params.movie}</h1>}
       
       {/* The movie state has content.*/
-       /* The API call was succesful and returned some content */ }
+       /* The API call was successful AND returned some content */ }
       { movies !== 'null' && movies.length !== 0 &&
         <div> 
           <h1>Movies matching {params.movie}</h1>
-          <h2>Select the movie you'd like to use for your similar search</h2>
+          <h2>Select the movie you'd like to use for your similar search.</h2>
 
           {movies.map((res) =>
             <div className='GetMovie' onClick={() => handleClick(res)}>
-              <>{res.movie}</>
+                <h3>{res.movie}</h3>
             </div>
           )}
         </div>

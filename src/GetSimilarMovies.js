@@ -4,15 +4,17 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import testSimMovies from './mockSimMovies'
 import DisplayMovie from './DisplayMovie'
-
+/*
+  Function GetSimilarMovies
+  This function uses the "find similar" API function 
+  It takes a specific movie id (returned by the get movie API function)
+  And returns a list of similar movies data. 
+*/
 function GetSimilarMovies() {
   
   // The user entered movie title
   const params = useParams()
   const sourceMovie = params.movie
-
-  // Placeholder input to test API response
-  //const sourceMovie='24168-titanic'  
 
   // The similar movies as provided by the API.   
   const [simMovies, setSimMovies] = useState('')
@@ -21,8 +23,9 @@ function GetSimilarMovies() {
     const fetchSimMovies = () => {
     setSimMovies(...testSimMovies["movies:"])
   }
-   
-  /*
+
+  /*  
+  Fetch a list of similar movies to the user's selection 
   const fetchSimMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/similar?id=${sourceMovie}`, {
       headers: {
@@ -58,11 +61,7 @@ function GetSimilarMovies() {
           )
         }
       </div>
-
-      <Link to='/'> 
-        <button>Home</button>
-      </Link> 
-
+      <Link to='/'> <button>Home</button> </Link> 
     </div>
   )
 }

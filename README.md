@@ -1,4 +1,4 @@
-## Movies Like
+## Similar Movies
 
 This is an app to find movies of similar type to a user provided movie title.
 It uses the Similar Movies API provided by rapidapi (https://rapidapi.com/animeslayerquiz/api/similar-movies/)
