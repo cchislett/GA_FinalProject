@@ -1,5 +1,5 @@
 /* Set margin to 0 to remove white space at top of page */
-/* Hence having to resetit everywhere else */ 
+/* Hence having to reset it everywhere else */ 
 * {
   margin: 0;
 }

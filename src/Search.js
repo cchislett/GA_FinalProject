@@ -29,9 +29,9 @@ function Search(){
          
       <form className='SearchForm'>
         <div>
-          <input type="text"
+          <input type='text'
             className='TextInput'
-            label='Enter a movie title'
+            aria-label='movie name to search'
             value={query}
             onChange={event => setQuery(event.target.value)}
           />

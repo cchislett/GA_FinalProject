@@ -28,6 +28,7 @@ function GetMovie() {
     setMovies(...testMovies["movies:"])
   }
   */
+
   
   // Fetch a list of movies that possibly match the users query 
   const fetchMovies = () => {
@@ -41,7 +42,7 @@ function GetMovie() {
     .then(data => {setMovies(...data["movies:"])})
     .catch(err => { console.log(err)})
   }
- 
+  
   // Handle a user click on a movie div
   const handleClick = (res) => {
     navigate(`/GetSimilarMovies/${res.id}`)
@@ -52,7 +53,7 @@ function GetMovie() {
   
   return (  
     <div className='GetMovies'>
-
+     
       {/* The movie state is null.
        /* We are waiting for a successful API call */}
       { movies === 'null' &&

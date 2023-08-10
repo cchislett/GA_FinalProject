@@ -25,7 +25,7 @@ function GetSimilarMovies() {
     setSimMovies(...testSimMovies["movies:"])
   }
   */
-
+  
   // Fetch a list of similar movies to the user's selection 
   const fetchSimMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/similar?id=${sourceMovie}`, {
@@ -38,6 +38,7 @@ function GetSimilarMovies() {
     .then(data => {setSimMovies(...data["movies:"])})
     .catch(err => { console.log(err)})
   }
+  
   
   // Get the movies
   useEffect(fetchSimMovies, []) 
