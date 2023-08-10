@@ -1,6 +1,8 @@
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import './App.css';
+import { Outlet, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Container, Stack, TextField, Button} from '@mui/material'
+
 function Home(){    
     let navigate = useNavigate()
     const [query, setQuery] = useState('')
@@ -12,7 +14,7 @@ function Home(){
         <Container className='SearchPage' maxWidth='md' sx={{textAlign: 'center'}}>
             <h1>Home Page </h1>
             <p>Enter the title of a movie of which you'd like to find similar movies.</p>       
-            <p>Note. It doesn't have to be exact. You'll get a chance to confirm your choice</p>
+            <p>It doesn't have to be exact. You'll get a chance to confirm your choice</p>
             
             <form onSubmit={handleSubmit}>
                 <Stack

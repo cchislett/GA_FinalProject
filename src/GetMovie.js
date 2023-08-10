@@ -1,8 +1,7 @@
 import './App.css';
 import { API_KEY } from './App'
 import { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
-import { useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import testMovies from './mockMovies'
 
 function GetMovie() {
@@ -13,17 +12,18 @@ function GetMovie() {
   const params = useParams()
   const userInput = params.movie
 
-  // Placeholder user input to test API response
- // const userInput='titanic'  
-
   // The movies returned from the initial API search
   // These are the movies that can be used for comparison.   
-  const [movies, setMovies] = useState('')
-
-  // The user selected film from the initial search
-  // This is the movie that will be used for comparison
-  //const [selectedFilm, setSelectedFilm] = useState('')
+  const [movies, setMovies] = useState('null')
+ 
   
+  // SET PLACEHOLDER DATA FOR TESTING
+    const fetchMovies = () => {
+    setMovies(...testMovies["movies:"])
+  }
+
+
+  /*
   const fetchMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/search?q=${userInput}`, {
       headers: {
@@ -35,13 +35,8 @@ function GetMovie() {
     .then(data => {setMovies(...data["movies:"])})
     .catch(err => { console.log(err)})
   }
-  
-
-    // SET PLACEHOLDER DATA FOR TESTING
-  //const fetchMovies = () => {
-  //  setMovies(...testMovies["movies:"])
- // }
-  
+  */
+ 
   const handleClick = (res) => {
     navigate(`/GetSimilarMovies/${res.id}`)
   }
@@ -50,26 +45,38 @@ function GetMovie() {
   useEffect(fetchMovies, []) 
   
   return (  
-    <div className='Movies'>
-      <h1>Movies matching {params.movie}</h1>
-      <h2>Select the movie you wish use for your search</h2>
-      {movies !== '' &&
-        movies.map((res) =>
-            <div className='Movie' 
-               onClick={() => handleClick(res)}
-            >
-              <p>{res.movie}</p>
+    <div className='GetMovies'>
+
+      {/* The movie state is null.
+       /* We are waiting for a successful API call */}
+      { movies === 'null' &&
+        <div>
+          <h1>Searching for {params.movie}.</h1>
+          <h2> Please wait, this can take a few seconds. </h2>
+        </div>}
+
+      {/* The movie state isn't null but is empty.*/
+       /* The API call was successful but returned no content */
+       /* The API couldn't find the user's movie query */ }
+      { movies.length === 0 && <h1>Sorry, the API couldn't find {params.movie}</h1>}
+      
+      {/* The movie state has content.*/
+       /* The API call was succesful and returned some content */ }
+      { movies !== 'null' && movies.length !== 0 &&
+        <div> 
+          <h1>Movies matching {params.movie}</h1>
+          <h2>Select the movie you'd like to use for your similar search</h2>
+
+          {movies.map((res) =>
+            <div className='GetMovie' onClick={() => handleClick(res)}>
+              <>{res.movie}</>
             </div>
-          )
+          )}
+        </div>
       }
       <Link to='/'> 
         <button>Home</button>
       </Link> 
-
-      <Link to='/GetSimilarMovies'> 
-        <button>Show Similar</button>
-      </Link> 
-
     </div>
   )
 }

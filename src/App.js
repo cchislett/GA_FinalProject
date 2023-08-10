@@ -8,9 +8,6 @@ import PageNotFound from './PageNotFound';
 // API key for Rapid API
 export const API_KEY = process.env.REACT_APP_MOVIES_API_KEY
 
-// <GetMovie />
-// <GetSimilarMovies />
-
 function App() {
   return (
         <div className='App'>

@@ -5,34 +5,55 @@
   color: black;
 }
 
-.Movies {
-  margin: 0 auto;
-  text-align: center;
-  padding: 10px;
-  max-width: 1000px;
+button {
+  height: 50px;
+  width: 100px;
+  font-size: large;
 }
 
-.Movie {
-  background-color: lightgrey;
-  color: black;
-  border-radius: 5px;
+.GetMovies {
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.GetMovie {
   margin: 10px;
   padding: 10px;
   display: flex;
   flex-direction: row;
+  background-color: lightgrey;
+  color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
 }
 
-.Movie:hover {
+.GetMovie:hover {
   background-color: lightsteelblue;
+}
+
+.Movies {
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.Movie {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: lightgrey;
+  color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
 }
 
 .DisplayMovie p{
   text-align: justify;
   padding: 0 50px 0 50px;
-}
-
-button {
-  height: 50px;
-  width: 100px;
-  font-size: large;
 }
