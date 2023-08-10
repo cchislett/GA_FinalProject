@@ -1,25 +1,32 @@
+/* Set margin to 0 to remove white space at top of page */
+/* Hence having to resetit everywhere else */ 
+* {
+  margin: 0;
+}
+
 .App {
   margin: 0 auto;
   text-align: center;
-  background-color: white;
   color: black;
 }
 
-p {
-  font-size: 20px;
-  padding-left: 20px;
-  text-align: left;
+h1, h2 {
+  margin: 10px;
 }
 
-h3 {
+p {
+  margin: 10px;
   font-size: 20px;
-  margin: 0;
+  padding-left: 20px;
+  padding-top: 10px;
+  text-align: left;
 }
 
 .TextInput{
   margin: 10px;
   padding: 10px;
   font-size: 20px;
+  background-color: lightgray;
 }
 
 button {
@@ -74,7 +81,3 @@ button:hover {
   border-radius: 5px;
 }
 
-.DisplayMovie p{
-  text-align: justify;
-  padding: 0 50px 0 50px;
-}

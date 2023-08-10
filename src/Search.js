@@ -24,8 +24,8 @@ function Search(){
   return(
     <div className='SearchPage'>
       <h1>Similar Movies Finder</h1>
-      <h3>Enter the title of a movie for which you'd like to find similar movies.</h3>       
-      <h3>It doesn't have to be exact. You'll get a chance to confirm your choice.</h3>
+      <h2>Enter the title of a movie for which you'd like to find similar movies.</h2>       
+      <h2>It doesn't have to be exact. You'll get a chance to confirm your choice.</h2>
          
       <form className='SearchForm'>
         <div>
