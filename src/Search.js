@@ -1,14 +1,20 @@
 import './App.css';
 import { Outlet, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 /*
-  The dedault home page
+  The default home page
   This function obtains a user query for the initial movie search
 */
 function Search(){   
 
   let navigate = useNavigate()
     
+  // Ensure text input has focus
+  const inputReference = useRef(null);
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
+
   // User generated query state handling
   const [query, setQuery] = useState('')
     
@@ -30,6 +36,7 @@ function Search(){
       <form className='SearchForm'>
         <div>
           <input type='text'
+            ref={inputReference}
             className='TextInput'
             aria-label='movie name to search'
             value={query}

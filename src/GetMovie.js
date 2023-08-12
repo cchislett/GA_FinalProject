@@ -22,14 +22,14 @@ function GetMovie() {
   // These are the movies that can be used for comparison.   
   const [movies, setMovies] = useState('null')
 
-  /*
+  
   // SET PLACEHOLDER DATA FOR TESTING
     const fetchMovies = () => {
     setMovies(...testMovies["movies:"])
   }
-  */
-
   
+
+  /*
   // Fetch a list of movies that possibly match the users query 
   const fetchMovies = () => {
     fetch(`https://similar-movies.p.rapidapi.com/search?q=${userInput}`, {
@@ -42,7 +42,8 @@ function GetMovie() {
     .then(data => {setMovies(...data["movies:"])})
     .catch(err => { console.log(err)})
   }
-  
+  */
+
   // Handle a user click on a movie div
   const handleClick = (res) => {
     navigate(`/GetSimilarMovies/${res.id}`)
@@ -53,7 +54,7 @@ function GetMovie() {
   
   return (  
     <div className='GetMovies'>
-     
+
       {/* The movie state is null.
        /* We are waiting for a successful API call */}
       { movies === 'null' &&
@@ -71,12 +72,12 @@ function GetMovie() {
        /* The API call was successful AND returned some content */ }
       { movies !== 'null' && movies.length !== 0 &&
         <div> 
-          <h1>Movies matching {params.movie}</h1>
-          <h2>Select the movie you'd like to use for your similar search.</h2>
+          <h1>Movies matching "{params.movie}".</h1>
+          <h2>Select the movie you'd like to use for your similar movies search.</h2>
 
-          {movies.map((res) =>
+          {movies.map((res, index) =>         
             <div className='GetMovie' onClick={() => handleClick(res)}>
-                <h3>{res.movie}</h3>
+              <h3>{res.movie}</h3>
             </div>
           )}
         </div>

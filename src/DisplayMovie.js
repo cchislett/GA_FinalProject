@@ -7,7 +7,7 @@ import './App.css';
 function DisplayMovie({posterURL, title, story, genre, style, duration}){
   return (
     <div className='Movie'>          
-      <img height='300' src = {posterURL} alt="" />
+      <img height='300' src = {posterURL} alt='' />
       <div>
         <h2>{title}</h2>
         <p>{story}</p>
