@@ -23,7 +23,7 @@ function GetMovie() {
   const [movies, setMovies] = useState('null')
 
   /*  
-  // SET PLACEHOLDER DATA FOR TESTING
+  // SET NON-API PLACEHOLDER DATA FOR TESTING
     const fetchMovies = () => {
     setMovies(...testMovies["movies:"])
   }
@@ -42,7 +42,6 @@ function GetMovie() {
     .catch(err => { console.log(err)})
   }
 
-
   // Handle a user click on a movie div
   const handleClick = (res) => {
     navigate(`/GetSimilarMovies/${res.id}`)
@@ -52,8 +51,8 @@ function GetMovie() {
   useEffect(fetchMovies, []) 
   
   return (  
-    <div className='GetMovies'>
-
+    <div className='GetMovies' data-testid="GetMovies">
+    
       {/* The movie state is null.
        /* We are waiting for a successful API call */}
       { movies === 'null' &&

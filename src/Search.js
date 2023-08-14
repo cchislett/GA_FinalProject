@@ -39,6 +39,7 @@ function Search(){
             ref={inputReference}
             className='TextInput'
             aria-label='movie name to search'
+            data-testid="SearchForm"
             value={query}
             onChange={event => setQuery(event.target.value)}
           />

@@ -42,7 +42,7 @@ function GetSimilarMovies() {
   useEffect(fetchSimMovies, []) 
   
   return (  
-    <div className='Movies'>
+    <div className='Movies' data-testid="Movies">
 
       {/* The simMovies state is null.
        /* We are waiting for a successful API call */}
