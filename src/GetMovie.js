@@ -57,7 +57,7 @@ function GetMovie() {
        /* We are waiting for a successful API call */}
       { movies === 'null' &&
         <div>
-          <h1>Searching for {params.movie}.</h1>
+          <h1>Searching for "{params.movie}".</h1>
           <h2> Please wait, this can take a few seconds. </h2>
         </div>
       }
